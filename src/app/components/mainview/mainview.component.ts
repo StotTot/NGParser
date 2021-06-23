@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Receipt } from 'src/app/models/receipt';
 import { ReceiptService } from 'src/app/services/receipt.service';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-mainview',
@@ -9,11 +11,17 @@ import { ReceiptService } from 'src/app/services/receipt.service';
 })
 export class MainviewComponent implements OnInit {
   
+  displayedColumns: string[] = ['id', 'total', 'taxes', 'date'];
   inputUrl:string = '';
   receipt?:Receipt;
+  receipts:Receipt[] = [];
+  dataSource:any
+  @ViewChild(MatSort)
+  sort: MatSort = new MatSort;
   constructor(private receiptService:ReceiptService) { }
 
   ngOnInit(): void {
+    this.getReceipts;
   }
 
   postReceipt(){
@@ -21,6 +29,15 @@ export class MainviewComponent implements OnInit {
       this.receipt = data;
       console.log(data);
     });
+  }
+
+  getReceipts(){
+    this.receiptService.getAll().subscribe((data)=>{
+      this.receipts = data;
+      this.dataSource = new MatTableDataSource(this.receipts)
+      this.dataSource.sort = this.sort;
+      console.log(data);
+    })
   }
 
 }

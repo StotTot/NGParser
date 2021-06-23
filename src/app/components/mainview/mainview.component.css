@@ -1,0 +1,45 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.1fr 0.3fr 3.6fr;
+    grid-template-rows: 0.2fr 1.8fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "receiptsTable receiptsTable receiptsTable receiptsTable ."
+      "receiptsTable receiptsTable receiptsTable receiptsTable ."
+      ". . . . .";
+  }
+  
+  .receiptsTable { grid-area: receiptsTable;}
+  /* .ticketDetails { grid-area: ticketDetails; } */
+  /* .ticketDetails{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+  } */
+  .receiptsTable {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+  }
+  table {
+    width: 100%;
+  }
+  .mat-row {
+    height: auto;
+  }
+  .mat-row:hover{
+    background-color:#B39DDB;
+  }
+  
+  .mat-cell {
+    padding: 8px 50px 8px 0;
+  }
+  .mat-header-row{
+    background-color: #FFE57F;
+  }
+
+  .pointer {
+    cursor: pointer;
+    background-color: #D1C4E9;
+    
+  }

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { List } from '../models/list';
 import { Receipt } from '../models/receipt';
 
 @Injectable({
@@ -32,5 +33,14 @@ export class ReceiptService {
         responseType:'json',
       })
  
+  }
+
+  getAll():Observable<any> {
+    
+    return this.http.request('GET', 'http://localhost:8080/receipts', 
+    {
+      responseType:'json',
+    })
+    
   }
 }
