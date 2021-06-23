@@ -15,9 +15,7 @@ export class MainviewComponent implements OnInit {
   }
 
   postReceipt(){
-    let receipt = new Receipt();
-    receipt.url = 'https://images.sampletemplates.com/wp-content/uploads/2018/04/Detailed-Grocery-Payment-Receipt-Samples.jpg';
-    this.receiptService.parse(receipt).subscribe((data)=>{
+    this.receiptService.parse('https://images.sampletemplates.com/wp-content/uploads/2018/04/Detailed-Grocery-Payment-Receipt-Samples.jpg').subscribe((data)=>{
       this.receipt = data;
       console.log(data);
     });

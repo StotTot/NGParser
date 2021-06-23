@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Receipt } from '../models/receipt';
@@ -20,9 +20,14 @@ export class ReceiptService {
   //   return null as any;
   // }
 
-  parse(url:Receipt):Observable<Receipt> {
+  parse(url:string):Observable<Receipt> {
+    let headers = new HttpHeaders(
+    {
+      'Content-type':'plain/text'
+    })
     return this.http.request('POST', 'http://localhost:8080/parse', 
       {
+        headers:headers,
         body:url,
         responseType:'json',
       })
