@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Receipt } from 'src/app/models/receipt';
 import { ReceiptService } from 'src/app/services/receipt.service';
 
@@ -8,6 +8,8 @@ import { ReceiptService } from 'src/app/services/receipt.service';
   styleUrls: ['./mainview.component.css']
 })
 export class MainviewComponent implements OnInit {
+  
+  inputUrl:string = '';
   receipt?:Receipt;
   constructor(private receiptService:ReceiptService) { }
 
@@ -15,7 +17,7 @@ export class MainviewComponent implements OnInit {
   }
 
   postReceipt(){
-    this.receiptService.parse('https://images.sampletemplates.com/wp-content/uploads/2018/04/Detailed-Grocery-Payment-Receipt-Samples.jpg').subscribe((data)=>{
+    this.receiptService.parse(this.inputUrl).subscribe((data)=>{
       this.receipt = data;
       console.log(data);
     });
