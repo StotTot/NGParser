@@ -6,6 +6,6 @@ export class Receipt {
         public url?:string,
         public total?:number,
         public taxesPaid?:number,
-        public date?:string
+        public date?:number
     ){}
 }

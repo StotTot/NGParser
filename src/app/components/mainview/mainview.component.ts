@@ -16,6 +16,7 @@ export class MainviewComponent implements OnInit {
   receipt?:Receipt;
   receipts:Receipt[] = [];
   dataSource:any
+  currUrl:string = ""
   @ViewChild(MatSort)
   sort: MatSort = new MatSort;
   constructor(private receiptService:ReceiptService) { }
@@ -38,6 +39,10 @@ export class MainviewComponent implements OnInit {
       this.dataSource.sort = this.sort;
       console.log(data);
     })
+  }
+
+  displayReceipt(url:string){
+    this.currUrl = url;
   }
 
 }
