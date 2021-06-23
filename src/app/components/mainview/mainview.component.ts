@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Receipt } from 'src/app/models/receipt';
+import { ReceiptService } from 'src/app/services/receipt.service';
 
 @Component({
   selector: 'app-mainview',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mainview.component.css']
 })
 export class MainviewComponent implements OnInit {
-
-  constructor() { }
+  receipt?:Receipt;
+  constructor(private receiptService:ReceiptService) { }
 
   ngOnInit(): void {
+  }
+
+  postReceipt(){
+    let receipt = new Receipt();
+    receipt.url = 'https://images.sampletemplates.com/wp-content/uploads/2018/04/Detailed-Grocery-Payment-Receipt-Samples.jpg';
+    this.receiptService.parse(receipt).subscribe((data)=>{
+      this.receipt = data;
+      console.log(data);
+    });
   }
 
 }
