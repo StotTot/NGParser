@@ -17,6 +17,7 @@ export class MainviewComponent implements OnInit {
   receipts:Receipt[] = [];
   dataSource:any
   currUrl:string = ""
+  bigorsmoll:string = "currImg"
   @ViewChild(MatSort)
   sort: MatSort = new MatSort;
   constructor(private receiptService:ReceiptService) { }
@@ -43,6 +44,14 @@ export class MainviewComponent implements OnInit {
 
   displayReceipt(url:string){
     this.currUrl = url;
+  }
+
+  changeSize(){
+    if (this.bigorsmoll === "currImg") {
+      this.bigorsmoll = "fullSize";
+    } else {
+      this.bigorsmoll = "currImg";
+    }
   }
 
 }

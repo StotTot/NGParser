@@ -4,18 +4,18 @@
     grid-template-rows: 0.2fr 1.8fr 1fr;
     gap: 0px 0px;
     grid-template-areas:
-      "receiptsTable receiptsTable receiptsTable receiptsTable receiptDetails"
-      "receiptsTable receiptsTable receiptsTable receiptsTable receiptDetails"
+      "receiptsTable receiptsTable receiptsTable . receiptDetails"
+      "receiptsTable receiptsTable receiptsTable . receiptDetails"
       ". . . . .";
   }
   
   .receiptsTable { grid-area: receiptsTable;}
-  /* .ticketDetails { grid-area: ticketDetails; } */
-  /* .ticketDetails{
+  .receiptDetails { grid-area: receiptDetails; }
+  .receiptDetails{
     height: 100%;
     width: 100%;
     overflow: auto;
-  } */
+  }
   .receiptsTable {
     height: 100%;
     width: 100%;
@@ -42,4 +42,12 @@
     cursor: pointer;
     background-color: #D1C4E9;
     
+  }
+  .currImg {
+    height: 30vh;
+    /* width: 35vw; */
+  }
+  .fullSize {
+      height: auto;
+      width: auto;
   }
