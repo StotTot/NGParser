@@ -10,7 +10,8 @@
   }
   
   .receiptsTable { grid-area: receiptsTable;}
-  .receiptDetails { grid-area: receiptDetails; }
+  .receiptDetails { grid-area: receiptDetails;}
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
   .receiptDetails{
     height: 100%;
     width: 100%;
@@ -20,6 +21,7 @@
     height: 100%;
     width: 100%;
     overflow: auto;
+    font-family: 'Roboto', sans-serif;
   }
   table {
     width: 100%;
@@ -28,19 +30,19 @@
     height: auto;
   }
   .mat-row:hover{
-    background-color:#B39DDB;
+    background-color:#94dbf7;
   }
   
   .mat-cell {
     padding: 8px 50px 8px 0;
   }
   .mat-header-row{
-    background-color: #FFE57F;
+    background-color: #61f3f8d3;
   }
 
   .pointer {
     cursor: pointer;
-    background-color: #D1C4E9;
+    background-color: #72d1f7;
     
   }
   .currImg {
@@ -50,4 +52,10 @@
   .fullSize {
       height: auto;
       width: auto;
+  }
+  button {
+    font-family: 'Roboto', sans-serif;
+  }
+  input {
+        font-family: 'Roboto', sans-serif;
   }

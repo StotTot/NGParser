@@ -1,12 +1,14 @@
-<input type="text" id="url" name="url" [(ngModel)]=inputUrl>
-<button (click)='postReceipt()'>Post Button</button>
 
 
+<input placeholder="url "type="text" id="url" name="url" [(ngModel)]=inputUrl style="font-size: 15pt; width: 607px;">
+<button mat-raised-button color="accent" (click)='postReceipt()'>Parse</button>
+<br>
+<button mat-raised-button color="accent" (click)="getReceipts()">Refresh Receipts</button>
 
 <div class="grid-container">
-    <div class="receiptsTable">
-        <button mat-raised-button color="accent" (click)="getReceipts()">Refresh Receipts</button>
 
+    <div class="receiptsTable">
+        
         <table mat-table [dataSource]="dataSource" matSort>
     
             <ng-container matColumnDef="id">
